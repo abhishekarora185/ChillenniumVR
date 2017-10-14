@@ -32,7 +32,10 @@ public class PopUpScore : MonoBehaviour {
     {
         text.text = value.ToString();
 
-        GameObject.Find("GameManager").GetComponent<GameManager>().AddScore(value);
+        if (GameObject.Find("GameManager") != null)
+        {
+            GameObject.Find("GameManager").GetComponent<GameManager>().AddScore(value);
+        }
     }
 
     private void FacePlayer()
