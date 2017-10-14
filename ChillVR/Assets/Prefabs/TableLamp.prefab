@@ -26,9 +26,10 @@ GameObject:
   - component: {fileID: 65092026399923138}
   - component: {fileID: 65838762612349046}
   - component: {fileID: 114465330052466482}
+  - component: {fileID: 114136616379788000}
   m_Layer: 0
   m_Name: TableLamp
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +53,7 @@ GameObject:
   - component: {fileID: 114039439541425124}
   m_Layer: 0
   m_Name: Shade
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +300,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseScore: 100
   PopScorePrefab: {fileID: 0}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}
+--- !u!114 &114136616379788000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508280700584130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
+  PopScorePrefab: {fileID: 1549429765224106, guid: 50906b42050f7aa4e85543202566ef37,
+    type: 2}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}
 --- !u!114 &114465330052466482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,6 +333,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseScore: 100
   PopScorePrefab: {fileID: 0}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}
 --- !u!114 &114816059802103772
 MonoBehaviour:
   m_ObjectHideFlags: 1
