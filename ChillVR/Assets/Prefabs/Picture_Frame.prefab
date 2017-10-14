@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95073640799042788}
   - component: {fileID: 54307578397839858}
   - component: {fileID: 65108510543823868}
+  - component: {fileID: 114034757550620096}
   m_Layer: 0
   m_Name: Picture_Frame
   m_TagString: Untagged
@@ -127,3 +128,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114034757550620096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880003764490454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
+  PopScorePrefab: {fileID: 0}

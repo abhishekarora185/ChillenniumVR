@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95648610749160294}
   - component: {fileID: 54333228504808100}
   - component: {fileID: 65410231096025732}
+  - component: {fileID: 114343816240806210}
   m_Layer: 0
   m_Name: floor_lamp
   m_TagString: Untagged
@@ -207,3 +208,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114343816240806210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286107799240420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
+  PopScorePrefab: {fileID: 0}
