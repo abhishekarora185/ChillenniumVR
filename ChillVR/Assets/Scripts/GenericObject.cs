@@ -76,6 +76,7 @@ public class GenericObject : MonoBehaviour {
     private void InstantiateScore(float value)
     {
         GameObject newPopScore = Instantiate(PopScorePrefab);
+        Debug.Log(gameObject.name);
         newPopScore.GetComponent<PopUpScore>().SetValue((int)value);
         newPopScore.transform.position = transform.position;
     }
