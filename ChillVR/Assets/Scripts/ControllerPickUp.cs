@@ -57,16 +57,16 @@ public class ControllerPickUp : MonoBehaviour
             if (origin != null)
             {
                 Vector3 velocity = device.velocity;
-                velocity.x *= -1;
-                velocity.z *= -1;
+                //velocity.x *= -1;
+                //velocity.z *= -1;
                 objectToUpdate.GetComponent<Rigidbody>().velocity = velocity;
                 objectToUpdate.GetComponent<Rigidbody>().angularVelocity = origin.TransformVector(device.angularVelocity);
             }
             else
             {
                 Vector3 velocity = device.velocity;
-                velocity.x *= -1;
-                velocity.z *= -1;
+                //velocity.x *= -1;
+               // velocity.z *= -1;
                 objectToUpdate.GetComponent<Rigidbody>().velocity = velocity;
                 objectToUpdate.GetComponent<Rigidbody>().angularVelocity = device.angularVelocity;
             }
