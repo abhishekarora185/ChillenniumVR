@@ -2,30 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class GenericObject : MonoBehaviour {
 
     public int baseScore = 100;
     public GameObject PopScorePrefab;
 
     private Vector3 originalPosition;
-    private bool misplaced = false;
+    public bool misplaced = false;
+
+    public float minimumBangVelocity = 0.8f;
+
+    public AudioClip bangSound;
+
 
 	// Use this for initialization
 	void Start () {
 
-        
+        originalPosition = transform.position;
 	}
 
     private void Update()
     {
-        //if (!misplaced & IsOutOfPosition() & PopScorePrefab != null)
-        //{
-        //    GameObject newPopScore = Instantiate(PopScorePrefab);
-        //    newPopScore.GetComponent<PopUpScore>().SetValue(baseScore);
-        //    newPopScore.transform.position = transform.position;
+        if (!misplaced & IsOutOfPosition() & PopScorePrefab != null)
+        {
+            InstantiateScore(baseScore);
 
-        //    misplaced = true;
-        //}
+            misplaced = true;
+        }
     }
 
     public float GetDistanceFromOriginalPosition()
@@ -52,4 +56,29 @@ public class GenericObject : MonoBehaviour {
             return false;
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (GetComponent<Rigidbody>().velocity.magnitude > minimumBangVelocity & PopScorePrefab != null)
+        {
+            InstantiateScore(GetComponent<Rigidbody>().velocity.magnitude * 500);
+
+            if (bangSound)
+            {
+                GetComponent<AudioSource>().PlayOneShot(bangSound);
+            }
+               
+
+        }
+    }
+
+
+    private void InstantiateScore(float value)
+    {
+        GameObject newPopScore = Instantiate(PopScorePrefab);
+        newPopScore.GetComponent<PopUpScore>().SetValue((int)value);
+        newPopScore.transform.position = transform.position;
+    }
+    
+
 }
