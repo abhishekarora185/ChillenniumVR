@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 54662622225549340}
   - component: {fileID: 65113437786344290}
   - component: {fileID: 114742717228842458}
+  - component: {fileID: 114939454318909038}
   m_Layer: 0
   m_Name: pillow
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,3 +142,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseScore: 100
   PopScorePrefab: {fileID: 0}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}
+--- !u!114 &114939454318909038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511528965613338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
+  PopScorePrefab: {fileID: 1549429765224106, guid: 50906b42050f7aa4e85543202566ef37,
+    type: 2}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}

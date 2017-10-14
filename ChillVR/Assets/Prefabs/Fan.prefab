@@ -26,9 +26,10 @@ GameObject:
   - component: {fileID: 65636520109302788}
   - component: {fileID: 65865788472007426}
   - component: {fileID: 144600990846163652}
+  - component: {fileID: 114905499068358466}
   m_Layer: 0
   m_Name: Fan
-  m_TagString: Untagged
+  m_TagString: Interactible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,6 +387,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114905499068358466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365537558318950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
+  PopScorePrefab: {fileID: 1549429765224106, guid: 50906b42050f7aa4e85543202566ef37,
+    type: 2}
+  misplaced: 0
+  minimumBangVelocity: 0.8
+  bangSound: {fileID: 0}
 --- !u!144 &144600990846163652
 CharacterJoint:
   m_ObjectHideFlags: 1
