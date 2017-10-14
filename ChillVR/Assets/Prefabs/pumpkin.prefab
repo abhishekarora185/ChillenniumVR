@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 135285562319628880}
   - component: {fileID: 54984354090665644}
   - component: {fileID: 114464939840803610}
-  - component: {fileID: 114928206716030090}
   - component: {fileID: 114635457733713252}
   m_Layer: 0
   m_Name: pumpkin
@@ -41,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629618673508844}
   m_LocalRotation: {x: 0.50000006, y: 0.49999994, z: -0.49999997, w: 0.5}
-  m_LocalPosition: {x: -50.879, y: 3.291, z: 50.492}
-  m_LocalScale: {x: 0.51091754, y: 0.51091754, z: 0.51091754}
+  m_LocalPosition: {x: -47.261, y: 4.473, z: 54.778}
+  m_LocalScale: {x: 0.3434425, y: 0.3434425, z: 0.3434425}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -145,23 +144,7 @@ MonoBehaviour:
     type: 2}
   misplaced: 0
   minimumBangVelocity: 0.8
-  bangSound: {fileID: 0}
---- !u!114 &114928206716030090
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1629618673508844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseScore: 100
-  PopScorePrefab: {fileID: 0}
-  misplaced: 0
-  minimumBangVelocity: 0.8
-  bangSound: {fileID: 0}
+  bangSound: {fileID: 8300000, guid: c82390aa31d565944a5153f11fe54abb, type: 3}
 --- !u!135 &135285562319628880
 SphereCollider:
   m_ObjectHideFlags: 1

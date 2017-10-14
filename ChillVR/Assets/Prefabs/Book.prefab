@@ -225,4 +225,4 @@ MonoBehaviour:
     type: 2}
   misplaced: 0
   minimumBangVelocity: 0.8
-  bangSound: {fileID: 8300000, guid: 550d97e7ae879df47a346c1dac3b3e63, type: 3}
+  bangSound: {fileID: 8300000, guid: aea656dbd1788df458ca8220df9baf45, type: 3}

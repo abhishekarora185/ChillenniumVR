@@ -105,7 +105,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 195
+    m_FontSize: 81
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 8
@@ -180,7 +180,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1549429765224106}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 55.19}
+  m_LocalPosition: {x: 0, y: 0, z: 58.227043}
   m_LocalScale: {x: 0.0052639158, y: 0.0052639153, z: 0.0052639153}
   m_Children:
   - {fileID: 224023054280306860}
@@ -189,6 +189,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -42.911, y: 6.57}
+  m_AnchoredPosition: {x: -40.899567, y: 5.02}
   m_SizeDelta: {x: 772, y: 579}
   m_Pivot: {x: 0.5, y: 0.5}
