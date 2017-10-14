@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 public class ControllerPickUp : MonoBehaviour
 {
+    public float HorizontalSpeedMagnifier = 1.0f;
 
     public Rigidbody attachPoint;
 
@@ -57,16 +58,16 @@ public class ControllerPickUp : MonoBehaviour
             if (origin != null)
             {
                 Vector3 velocity = device.velocity;
-                //velocity.x *= -1;
-                //velocity.z *= -1;
+                velocity.x *= HorizontalSpeedMagnifier;
+                velocity.z *= HorizontalSpeedMagnifier;
                 objectToUpdate.GetComponent<Rigidbody>().velocity = velocity;
                 objectToUpdate.GetComponent<Rigidbody>().angularVelocity = origin.TransformVector(device.angularVelocity);
             }
             else
             {
                 Vector3 velocity = device.velocity;
-                //velocity.x *= -1;
-               // velocity.z *= -1;
+                velocity.x *= HorizontalSpeedMagnifier;
+                velocity.z *= HorizontalSpeedMagnifier;
                 objectToUpdate.GetComponent<Rigidbody>().velocity = velocity;
                 objectToUpdate.GetComponent<Rigidbody>().angularVelocity = device.angularVelocity;
             }
