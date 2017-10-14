@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 65004135369084286}
   - component: {fileID: 65482460884330754}
   - component: {fileID: 65501281780964124}
+  - component: {fileID: 114890974464109080}
   m_Layer: 0
   m_Name: deer_statue
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159968890263912}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -45.518, y: 4.01, z: 60.0037}
+  m_LocalPosition: {x: -45.63, y: 3.9779, z: 59.953}
   m_LocalScale: {x: 0.36573148, y: 0.3657315, z: 0.3657315}
   m_Children: []
   m_Father: {fileID: 0}
@@ -166,3 +167,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114890974464109080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159968890263912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 100
