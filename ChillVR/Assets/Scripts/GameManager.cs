@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public float AllowedDistanceFromOrigin = 5f;
+    public float AllowedDifferenceInOrientationDegrees = 20.0f;
 
     public int totalScore = 0;
     public bool isCleaningPhase = false;

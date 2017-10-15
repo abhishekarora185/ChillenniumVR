@@ -16,6 +16,7 @@ public class GenericObject : MonoBehaviour {
     public GameObject PopScorePrefab;
 
     private Vector3 originalPosition;
+    private Vector3 originalOrientation;
     public bool misplaced = false;
 
     public float minimumBangVelocity = 0.8f;
@@ -34,6 +35,7 @@ public class GenericObject : MonoBehaviour {
             SetMaterialsForCleaningPhase();
         }
         originalPosition = transform.position;
+        originalOrientation = transform.rotation.eulerAngles;
 	}
 
     private void Update()
@@ -65,6 +67,17 @@ public class GenericObject : MonoBehaviour {
         float returnValue = Mathf.Sqrt(Mathf.Pow(xDist, 2) + Mathf.Pow(yDist, 2) + Mathf.Pow(zDist, 2));
 
         return returnValue;
+    }
+
+    public bool IsDisoriented()
+    {
+        Vector3 currentOrientation = transform.rotation.eulerAngles;
+
+        float xOrientationDifference = Mathf.Abs(currentOrientation.x - originalOrientation.x);
+        float zOrientationDifference = Mathf.Abs(currentOrientation.z - originalOrientation.z);
+        float totalDifference = xOrientationDifference + zOrientationDifference;
+
+        return (totalDifference > gameManager.AllowedDifferenceInOrientationDegrees);
     }
 
     public bool IsOutOfPosition()
@@ -144,7 +157,7 @@ public class GenericObject : MonoBehaviour {
     {
         if (gameManager.isCleaningPhase)
         {
-            if (this.IsOutOfPosition())
+            if (this.IsOutOfPosition() || this.IsDisoriented())
             {
                 this.GetComponent<MeshRenderer>().material = cleaningPhaseOutOfPositionMaterial;
             }
