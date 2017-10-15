@@ -112,16 +112,17 @@ public class GeneralUI : MonoBehaviour {
 
         yield return new WaitForSeconds(cleaningTime);
 
-        GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
-        GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
+        Debug.Log("Done!");
         GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver = true;
         GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
-
         for (int i = 0; i < 6; i++)     // Knock sound
         {
             GetComponent<AudioSource>().PlayOneShot(knockSFX);
             yield return new WaitForSeconds(0.75f);
         }
+
+        GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
+        GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
     }
 
     private void UpdateAndDisplayTimeLeft()

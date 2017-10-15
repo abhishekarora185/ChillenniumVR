@@ -65,6 +65,8 @@ public class GameManager : MonoBehaviour {
 
         string gameOverMessage = "GAME OVER.";
 
+        float initialScore = totalScore;
+
         foreach (GameObject interactibleGameObject in interactibleGameObjects)
         {
             if (interactibleGameObject.GetComponent<GenericObject>() != null && (interactibleGameObject.GetComponent<GenericObject>().IsOutOfPosition() || interactibleGameObject.GetComponent<GenericObject>().IsDisoriented()))
@@ -73,6 +75,9 @@ public class GameManager : MonoBehaviour {
                 UpdateScore();
             }
         }
+
+        Debug.Log("Initial score: " + initialScore);
+        Debug.Log("Final score: " + totalScore);
 
         if (totalScore < 0)
         {
