@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour {
     {
         isCleaningPhase = true;
         CleaningPhaseBanner.gameObject.SetActive(true);
+        CleaningPhaseBanner.color = Color.red;
+        StartCoroutine(FlashScoreColor());
     }
 
     public void ComputeFinalScore()     // TODO: Apply some logic here
@@ -66,6 +68,17 @@ public class GameManager : MonoBehaviour {
                 totalScore -= 50000;    // TODO: Check this value!
                 UpdateScore();
             }
+        }
+    }
+
+    private IEnumerator FlashScoreColor()
+    {
+        scoreText.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        scoreText.color = Color.black;
+        if (isCleaningPhase && !isGameOver)
+        {
+            StartCoroutine(FlashScoreColor());
         }
     }
 }
