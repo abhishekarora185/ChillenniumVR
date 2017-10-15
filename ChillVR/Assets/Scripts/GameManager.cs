@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public int totalScore = 0;
     public bool isCleaningPhase = false;
+    public bool isGameOver = false;
 
     public Text scoreText;  //to display on canvas
     public Text CleaningPhaseBanner;

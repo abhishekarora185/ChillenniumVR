@@ -114,6 +114,7 @@ public class GeneralUI : MonoBehaviour {
         GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
         GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
         GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
+        GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver = true;
     }
 
     private void UpdateAndDisplayTimeLeft()

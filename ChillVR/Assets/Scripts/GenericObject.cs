@@ -49,6 +49,11 @@ public class GenericObject : MonoBehaviour {
         {
             ChangeMaterialToConveyDistanceFromOriginInCleaningMode();
         }
+
+        if (gameManager && gameManager.isGameOver)
+        {
+            RemoveFixedJointIfPresent();
+        }
     }
 
     public float GetDistanceFromOriginalPosition()
@@ -77,6 +82,16 @@ public class GenericObject : MonoBehaviour {
         else
             return false;
 
+    }
+
+    private void RemoveFixedJointIfPresent()
+    {
+        FixedJoint attachedJoint = this.gameObject.GetComponent<FixedJoint>();
+
+        if (attachedJoint != null)
+        {
+            DestroyImmediate(attachedJoint);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
