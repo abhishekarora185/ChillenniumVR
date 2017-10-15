@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 65596532366420030}
   - component: {fileID: 65189405271691212}
   - component: {fileID: 59035640285429676}
+  - component: {fileID: 114050802517969900}
   m_Layer: 0
   m_Name: FanBlades
   m_TagString: Untagged
@@ -386,6 +387,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114050802517969900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812904652950914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb1fccddec0e57479fb1e29e93e2b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 500
 --- !u!144 &144600990846163652
 CharacterJoint:
   m_ObjectHideFlags: 1
