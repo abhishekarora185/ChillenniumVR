@@ -14,6 +14,7 @@ public class GeneralUI : MonoBehaviour {
 
     public GameObject scoreText;
     public AudioClip ringSFX;
+    public AudioClip tickSFX;
     public float messingTime = 120;
     public float cleaningTime = 120;
 
@@ -21,6 +22,7 @@ public class GeneralUI : MonoBehaviour {
     public GameObject timer2;
 
     private float timeLeftSeconds;
+    private int lastTimeSeconds;
 
 	// Use this for initialization
 	void Start () {
@@ -97,6 +99,7 @@ public class GeneralUI : MonoBehaviour {
         scoreText.SetActive(true);
 
         //initiate cleaning phase of the game here-----------------------------
+        StartCoroutine(CleaningTime());
         GameObject.Find("GameManager").GetComponent<GameManager>().StartCleaningPhase();
     }
 
@@ -124,6 +127,10 @@ public class GeneralUI : MonoBehaviour {
         {
             secondsString = "0" + secondsString;
         }
+        if (timeMinutes == 0 && timeSeconds < 6 && timeSeconds < lastTimeSeconds)
+        {
+            GetComponent<AudioSource>().PlayOneShot(tickSFX);
+        }
 
         timer1.GetComponent<Text>().text = minutesString + ":" + secondsString;
         timer2.GetComponent<Text>().text = minutesString + ":" + secondsString;
@@ -131,6 +138,7 @@ public class GeneralUI : MonoBehaviour {
         if (timeLeftSeconds > 0.0f)
         {
             timeLeftSeconds -= Time.deltaTime;
+            lastTimeSeconds = timeSeconds;
         }
     }
 }
