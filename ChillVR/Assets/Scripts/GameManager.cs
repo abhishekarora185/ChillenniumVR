@@ -61,14 +61,31 @@ public class GameManager : MonoBehaviour {
     {
         GameObject[] interactibleGameObjects = GameObject.FindGameObjectsWithTag("Interactible");
 
+        CleaningPhaseBanner.color = Color.black;
+
+        string gameOverMessage = "GAME OVER.";
+
         foreach (GameObject interactibleGameObject in interactibleGameObjects)
         {
-            if (interactibleGameObject.GetComponent<GenericObject>() != null && interactibleGameObject.GetComponent<GenericObject>().IsOutOfPosition())
+            if (interactibleGameObject.GetComponent<GenericObject>() != null && (interactibleGameObject.GetComponent<GenericObject>().IsOutOfPosition() || interactibleGameObject.GetComponent<GenericObject>().IsDisoriented()))
             {
                 totalScore -= 50000;    // TODO: Check this value!
                 UpdateScore();
             }
         }
+
+        if (totalScore < 0)
+        {
+            gameOverMessage += "\nYOU ARE GROUNDED.";
+            CleaningPhaseBanner.color = Color.red;
+        }
+        else
+        {
+            gameOverMessage += "\nYOU ARE SAFE!";
+            CleaningPhaseBanner.color = Color.cyan;
+        }
+
+        CleaningPhaseBanner.text = gameOverMessage;
     }
 
     private IEnumerator FlashScoreColor()
