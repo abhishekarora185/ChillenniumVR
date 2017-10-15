@@ -14,6 +14,7 @@ public class GeneralUI : MonoBehaviour {
     public GameObject scoreText;
     public AudioClip ringSFX;
     public float messingTime = 120;
+    public float cleaningTime = 120;
 
 	// Use this for initialization
 	void Start () {
@@ -87,5 +88,13 @@ public class GeneralUI : MonoBehaviour {
         scoreText.SetActive(true);
 
         //initiate cleaning phase of the game here-----------------------------
+        GameObject.Find("GameManager").GetComponent<GameManager>().StartCleaningPhase();
+    }
+
+    private IEnumerator CleaningTime()
+    {
+        yield return new WaitForSeconds(cleaningTime);
+
+        GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
     }
 }

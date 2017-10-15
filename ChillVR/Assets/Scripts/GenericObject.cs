@@ -14,21 +14,26 @@ public class GenericObject : MonoBehaviour {
     public float minimumBangVelocity = 0.8f;
 
     public AudioClip bangSound;
-
+    private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         originalPosition = transform.position;
 	}
 
     private void Update()
     {
-        if (!misplaced & IsOutOfPosition() & PopScorePrefab != null)
+        if (!gameManager.isCleaningPhase && !misplaced & IsOutOfPosition() & PopScorePrefab != null)
         {
             InstantiateScore(baseScore);
 
             misplaced = true;
+        }
+
+        if (gameManager.isCleaningPhase)
+        {
+            ChangeMaterialToConveyDistanceFromOriginInCleaningMode();
         }
     }
 
@@ -43,11 +48,11 @@ public class GenericObject : MonoBehaviour {
         return returnValue;
     }
 
-    private bool IsOutOfPosition()
+    public bool IsOutOfPosition()
     {
         float currentDistanceFromOrigin = GetDistanceFromOriginalPosition();
 
-        if (currentDistanceFromOrigin > 0.5)
+        if (currentDistanceFromOrigin > gameManager.AllowedDistanceFromOrigin)
         {
             return true;
         }
@@ -59,7 +64,7 @@ public class GenericObject : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (GetComponent<Rigidbody>().velocity.magnitude > minimumBangVelocity & PopScorePrefab != null)
+        if (!gameManager.isCleaningPhase && GetComponent<Rigidbody>().velocity.magnitude > minimumBangVelocity & PopScorePrefab != null)
         {
             InstantiateScore(GetComponent<Rigidbody>().velocity.magnitude * 500);
 
@@ -80,6 +85,20 @@ public class GenericObject : MonoBehaviour {
         newPopScore.GetComponent<PopUpScore>().SetValue((int)value);
         newPopScore.transform.position = transform.position;
     }
-    
 
+    private void ChangeMaterialToConveyDistanceFromOriginInCleaningMode()
+    {
+        if (gameManager.isCleaningPhase)
+        {
+            if (this.IsOutOfPosition())
+            {
+                this.GetComponent<MeshRenderer>().material = gameManager.OutOfPositionMaterialCleaningPhase;
+            }
+            else
+            {
+                this.GetComponent<MeshRenderer>().material = gameManager.InPositionMaterialCleaningPhase;
+            }
+        }
+    }
+    
 }
