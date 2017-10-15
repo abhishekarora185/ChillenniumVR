@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 
         foreach (GameObject interactibleGameObject in interactibleGameObjects)
         {
-            if (interactibleGameObject.GetComponent<GenericObject>().IsOutOfPosition())
+            if (interactibleGameObject.GetComponent<GenericObject>() != null && interactibleGameObject.GetComponent<GenericObject>().IsOutOfPosition())
             {
                 totalScore -= 50000;    // TODO: Check this value!
                 UpdateScore();

@@ -127,7 +127,7 @@ public class GeneralUI : MonoBehaviour {
         {
             secondsString = "0" + secondsString;
         }
-        if (timeSeconds < 6 && timeSeconds < lastTimeSeconds)
+        if (timeMinutes == 0 && timeSeconds < 6 && timeSeconds < lastTimeSeconds)
         {
             GetComponent<AudioSource>().PlayOneShot(tickSFX);
         }
