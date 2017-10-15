@@ -96,5 +96,7 @@ public class GeneralUI : MonoBehaviour {
         yield return new WaitForSeconds(cleaningTime);
 
         GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
+        GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
+        GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
     }
 }
