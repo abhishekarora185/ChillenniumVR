@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour {
     public Text scoreText;  //to display on canvas
     public Text CleaningPhaseBanner;
 
+    public Material LightObjectMaterial;
+    public Material MediumObjectMaterial;
+    public Material HeavyObjectMaterial;
     public Material InPositionLightMaterialCleaningPhase;
     public Material OutOfPositionLightMaterialCleaningPhase;
     public Material InPositionMediumMaterialCleaningPhase;

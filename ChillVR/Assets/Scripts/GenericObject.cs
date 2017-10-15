@@ -23,7 +23,7 @@ public class GenericObject : MonoBehaviour {
 
     public AudioClip bangSound;
     private GameManager gameManager;
-
+    
     private Material cleaningPhaseInPostionMaterial;
     private Material cleaningPhaseOutOfPositionMaterial;
 
@@ -32,6 +32,7 @@ public class GenericObject : MonoBehaviour {
         if (GameObject.Find("GameManager") != null)
         {
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            SetMaterial();
             SetMaterialsForCleaningPhase();
         }
         originalPosition = transform.position;
@@ -131,6 +132,24 @@ public class GenericObject : MonoBehaviour {
         newPopScore.transform.position = transform.position;
     }
 
+    private void SetMaterial()
+    {
+        int weight = (int)this.gameObject.GetComponent<Rigidbody>().mass;
+
+        if (weight <= (int)GenericObjectWeightClass.WEIGHT_LIGHT)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.LightObjectMaterial;
+        }
+        else if (weight <= (int)GenericObjectWeightClass.WEIGHT_MEDIUM)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.MediumObjectMaterial;
+        }
+        else
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.HeavyObjectMaterial;
+        }
+    }
+
     private void SetMaterialsForCleaningPhase()
     {
         int weight = (int)this.gameObject.GetComponent<Rigidbody>().mass;
@@ -144,7 +163,6 @@ public class GenericObject : MonoBehaviour {
         {
             cleaningPhaseInPostionMaterial = gameManager.InPositionMediumMaterialCleaningPhase;
             cleaningPhaseOutOfPositionMaterial = gameManager.OutOfPositionMediumMaterialCleaningPhase;
-
         }
         else
         {
