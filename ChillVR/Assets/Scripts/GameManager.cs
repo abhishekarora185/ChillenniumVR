@@ -13,8 +13,12 @@ public class GameManager : MonoBehaviour {
     public Text scoreText;  //to display on canvas
     public Text CleaningPhaseBanner;
 
-    public Material InPositionMaterialCleaningPhase;
-    public Material OutOfPositionMaterialCleaningPhase;
+    public Material InPositionLightMaterialCleaningPhase;
+    public Material OutOfPositionLightMaterialCleaningPhase;
+    public Material InPositionMediumMaterialCleaningPhase;
+    public Material OutOfPositionMediumMaterialCleaningPhase;
+    public Material InPositionHeavyMaterialCleaningPhase;
+    public Material OutOfPositionHeavyMaterialCleaningPhase;
 
 	// Use this for initialization
 	void Start () {
