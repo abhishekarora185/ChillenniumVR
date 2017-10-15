@@ -612,8 +612,8 @@ MonoBehaviour:
   callMessage: {fileID: 1549298099}
   scoreText: {fileID: 1738442235}
   ringSFX: {fileID: 8300000, guid: f199266abeb74d84594cbb90f501a137, type: 3}
-  tickSFX: {fileID: 8300000, guid: 54fd83926aa55fd41b3ec27f40971219, type: 3}
-  messingTime: 10
+  tickSFX: {fileID: 8300000, guid: a90b4af91a54e2841bd8a6c84bbea66d, type: 3}
+  messingTime: 40
   cleaningTime: 180
   timer1: {fileID: 1560352920}
   timer2: {fileID: 639774708}
