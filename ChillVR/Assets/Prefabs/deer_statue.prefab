@@ -23,12 +23,11 @@ GameObject:
   - component: {fileID: 23877998575465124}
   - component: {fileID: 95877827746837988}
   - component: {fileID: 54701851516494706}
-  - component: {fileID: 65451635767257388}
-  - component: {fileID: 65004135369084286}
-  - component: {fileID: 65482460884330754}
-  - component: {fileID: 65501281780964124}
   - component: {fileID: 114890974464109080}
   - component: {fileID: 82400529798218660}
+  - component: {fileID: 122755139972099428}
+  - component: {fileID: 65899521771073552}
+  - component: {fileID: 65145968973624114}
   m_Layer: 0
   m_Name: deer_statue
   m_TagString: Interactible
@@ -43,8 +42,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159968890263912}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -45.63, y: 3.99, z: 60.21}
-  m_LocalScale: {x: 0.36573148, y: 0.3657315, z: 0.3657315}
+  m_LocalPosition: {x: -45.63, y: 3.86, z: 59.67}
+  m_LocalScale: {x: 0.9189947, y: 0.9189948, z: 0.9189948}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,7 +86,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159968890263912}
-  m_Mesh: {fileID: 4300000, guid: 08873eab27ae98b4a8a15a7932f5c3d1, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 4b8943aa6b1fddc419279e7537a04826, type: 3}
 --- !u!54 &54701851516494706
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -103,7 +102,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65004135369084286
+--- !u!65 &65145968973624114
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -113,9 +112,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61063284, y: 1.6342962, z: 3.979124}
-  m_Center: {x: -1.1317421, y: 0.022176415, z: -0.71315444}
---- !u!65 &65451635767257388
+  m_Size: {x: 0.51873094, y: 0.6259621, z: 0.8519943}
+  m_Center: {x: -0.9470153, y: 1.2037626e-15, z: 0.684204}
+--- !u!65 &65899521771073552
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,32 +124,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6240039, y: 1.6342962, z: 2.0070865}
-  m_Center: {x: -2.2737281, y: 0.022176413, z: 2.0559535}
---- !u!65 &65482460884330754
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1159968890263912}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.80268794, y: 1.6342962, z: 3.976197}
-  m_Center: {x: 1.2892878, y: 0.022176415, z: -0.714618}
---- !u!65 &65501281780964124
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1159968890263912}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6686851, y: 1.6342962, z: 1.2826786}
-  m_Center: {x: 0.018357204, y: 0.022176413, z: 0.6670254}
+  m_Size: {x: 1.2057182, y: 0.6259621, z: 1.4673783}
+  m_Center: {x: -0.0014645704, y: -4.250784e-16, z: -0.1805564}
 --- !u!82 &82400529798218660
 AudioSource:
   m_ObjectHideFlags: 1
@@ -265,3 +240,14 @@ MonoBehaviour:
   misplaced: 0
   minimumBangVelocity: 0.7
   bangSound: {fileID: 8300000, guid: 369caf2ebfceed94dae508b8ffd01de6, type: 3}
+--- !u!122 &122755139972099428
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159968890263912}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 5
