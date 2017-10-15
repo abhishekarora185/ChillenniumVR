@@ -9,50 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1049780042944800}
+  m_RootGameObject: {fileID: 1883706951169536}
   m_IsPrefabParent: 1
---- !u!1 &1049780042944800
+--- !u!1 &1883706951169536
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4811867801054766}
-  - component: {fileID: 33254617302037346}
-  - component: {fileID: 23840236318195146}
-  - component: {fileID: 95770711342379498}
-  - component: {fileID: 54165378335909942}
-  - component: {fileID: 135110384653324712}
-  - component: {fileID: 65483484538899532}
-  - component: {fileID: 114446809770093224}
-  - component: {fileID: 82274814049939652}
+  - component: {fileID: 4832632365211940}
+  - component: {fileID: 33172535469572358}
+  - component: {fileID: 23826948127636858}
+  - component: {fileID: 95979002018383102}
+  - component: {fileID: 64828960152819372}
+  - component: {fileID: 54918692646542650}
+  - component: {fileID: 82084744409655638}
+  - component: {fileID: 114615189279860538}
   m_Layer: 0
-  m_Name: candle_1
-  m_TagString: Interactible
+  m_Name: Wine_bottle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4811867801054766
+--- !u!4 &4832632365211940
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -43.685, y: 5.534, z: 59.939}
-  m_LocalScale: {x: 0.13616383, y: 0.13616383, z: 0.13616383}
+  m_LocalPosition: {x: -45.099, y: 4.08, z: 50.236}
+  m_LocalScale: {x: 0.19244498, y: 0.1924448, z: 0.1924448}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23840236318195146
+--- !u!23 &23826948127636858
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -79,21 +78,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33254617302037346
+--- !u!33 &33172535469572358
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
-  m_Mesh: {fileID: 4300000, guid: 4f5eabb4404d2904db38c07b13e55947, type: 3}
---- !u!54 &54165378335909942
+  m_GameObject: {fileID: 1883706951169536}
+  m_Mesh: {fileID: 4300000, guid: a981e8f95258f76428b092bb0711ca33, type: 3}
+--- !u!54 &54918692646542650
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -101,24 +100,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65483484538899532
-BoxCollider:
+--- !u!64 &64828960152819372
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.70954853, y: 0.79267013, z: 0.7604752}
-  m_Center: {x: 0.009875435, y: -0.006199892, z: 0.38023782}
---- !u!82 &82274814049939652
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a981e8f95258f76428b092bb0711ca33, type: 3}
+--- !u!82 &82084744409655638
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -193,15 +194,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95770711342379498
+--- !u!95 &95979002018383102
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4f5eabb4404d2904db38c07b13e55947, type: 3}
+  m_Avatar: {fileID: 9000000, guid: a981e8f95258f76428b092bb0711ca33, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -210,32 +211,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114446809770093224
+--- !u!114 &114615189279860538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
+  m_GameObject: {fileID: 1883706951169536}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fe3769140e2e8f4d999c9c2486b3b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseScore: 100
-  PopScorePrefab: {fileID: 1549429765224106, guid: 50906b42050f7aa4e85543202566ef37,
-    type: 2}
+  baseScore: 15
+  PopScorePrefab: {fileID: 0}
   misplaced: 0
   minimumBangVelocity: 0.8
-  bangSound: {fileID: 8300000, guid: c82390aa31d565944a5153f11fe54abb, type: 3}
---- !u!135 &135110384653324712
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049780042944800}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.58
-  m_Center: {x: 0, y: -0.00000002980233, z: 1.33}
+  bangSound: {fileID: 8300000, guid: 8c15bf9116fb3a14baeec5ef247b7dbe, type: 3}
