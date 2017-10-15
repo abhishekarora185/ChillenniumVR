@@ -15,6 +15,7 @@ public class GeneralUI : MonoBehaviour {
     public GameObject scoreText;
     public AudioClip ringSFX;
     public AudioClip tickSFX;
+    public AudioClip knockSFX;
     public float messingTime = 120;
     public float cleaningTime = 120;
 
@@ -114,6 +115,8 @@ public class GeneralUI : MonoBehaviour {
         GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
         GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
         GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
+        GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver = true;
+        GetComponent<AudioSource>().PlayOneShot(knockSFX);
     }
 
     private void UpdateAndDisplayTimeLeft()

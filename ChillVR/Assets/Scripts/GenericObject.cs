@@ -16,13 +16,14 @@ public class GenericObject : MonoBehaviour {
     public GameObject PopScorePrefab;
 
     private Vector3 originalPosition;
+    private Vector3 originalOrientation;
     public bool misplaced = false;
 
     public float minimumBangVelocity = 0.8f;
 
     public AudioClip bangSound;
     private GameManager gameManager;
-
+    
     private Material cleaningPhaseInPostionMaterial;
     private Material cleaningPhaseOutOfPositionMaterial;
 
@@ -31,9 +32,11 @@ public class GenericObject : MonoBehaviour {
         if (GameObject.Find("GameManager") != null)
         {
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            SetMaterial();
             SetMaterialsForCleaningPhase();
         }
         originalPosition = transform.position;
+        originalOrientation = transform.rotation.eulerAngles;
 	}
 
     private void Update()
@@ -49,6 +52,11 @@ public class GenericObject : MonoBehaviour {
         {
             ChangeMaterialToConveyDistanceFromOriginInCleaningMode();
         }
+
+        if (gameManager && gameManager.isGameOver)
+        {
+            RemoveFixedJointIfPresent();
+        }
     }
 
     public float GetDistanceFromOriginalPosition()
@@ -60,6 +68,17 @@ public class GenericObject : MonoBehaviour {
         float returnValue = Mathf.Sqrt(Mathf.Pow(xDist, 2) + Mathf.Pow(yDist, 2) + Mathf.Pow(zDist, 2));
 
         return returnValue;
+    }
+
+    public bool IsDisoriented()
+    {
+        Vector3 currentOrientation = transform.rotation.eulerAngles;
+
+        float xOrientationDifference = Mathf.Abs(currentOrientation.x - originalOrientation.x);
+        float zOrientationDifference = Mathf.Abs(currentOrientation.z - originalOrientation.z);
+        float totalDifference = xOrientationDifference + zOrientationDifference;
+
+        return (totalDifference > gameManager.AllowedDifferenceInOrientationDegrees);
     }
 
     public bool IsOutOfPosition()
@@ -77,6 +96,16 @@ public class GenericObject : MonoBehaviour {
         else
             return false;
 
+    }
+
+    private void RemoveFixedJointIfPresent()
+    {
+        FixedJoint attachedJoint = this.gameObject.GetComponent<FixedJoint>();
+
+        if (attachedJoint != null)
+        {
+            DestroyImmediate(attachedJoint);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -103,6 +132,24 @@ public class GenericObject : MonoBehaviour {
         newPopScore.transform.position = transform.position;
     }
 
+    private void SetMaterial()
+    {
+        int weight = (int)this.gameObject.GetComponent<Rigidbody>().mass;
+
+        if (weight <= (int)GenericObjectWeightClass.WEIGHT_LIGHT)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.LightObjectMaterial;
+        }
+        else if (weight <= (int)GenericObjectWeightClass.WEIGHT_MEDIUM)
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.MediumObjectMaterial;
+        }
+        else
+        {
+            this.gameObject.GetComponent<MeshRenderer>().material = gameManager.HeavyObjectMaterial;
+        }
+    }
+
     private void SetMaterialsForCleaningPhase()
     {
         int weight = (int)this.gameObject.GetComponent<Rigidbody>().mass;
@@ -116,7 +163,6 @@ public class GenericObject : MonoBehaviour {
         {
             cleaningPhaseInPostionMaterial = gameManager.InPositionMediumMaterialCleaningPhase;
             cleaningPhaseOutOfPositionMaterial = gameManager.OutOfPositionMediumMaterialCleaningPhase;
-
         }
         else
         {
@@ -129,7 +175,7 @@ public class GenericObject : MonoBehaviour {
     {
         if (gameManager.isCleaningPhase)
         {
-            if (this.IsOutOfPosition())
+            if (this.IsOutOfPosition() || this.IsDisoriented())
             {
                 this.GetComponent<MeshRenderer>().material = cleaningPhaseOutOfPositionMaterial;
             }

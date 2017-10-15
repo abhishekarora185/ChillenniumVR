@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public float AllowedDistanceFromOrigin = 5f;
+    public float AllowedDifferenceInOrientationDegrees = 20.0f;
 
     public int totalScore = 0;
     public bool isCleaningPhase = false;
+    public bool isGameOver = false;
 
     public Text scoreText;  //to display on canvas
     public Text CleaningPhaseBanner;
 
+    public Material LightObjectMaterial;
+    public Material MediumObjectMaterial;
+    public Material HeavyObjectMaterial;
     public Material InPositionLightMaterialCleaningPhase;
     public Material OutOfPositionLightMaterialCleaningPhase;
     public Material InPositionMediumMaterialCleaningPhase;
