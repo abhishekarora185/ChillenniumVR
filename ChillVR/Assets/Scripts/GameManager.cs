@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour {
         scoreText.color = Color.black;
         if (isCleaningPhase && !isGameOver)
         {
+            yield return new WaitForSeconds(0.5f);
             StartCoroutine(FlashScoreColor());
         }
     }
