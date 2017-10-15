@@ -18,20 +18,23 @@ public class GenericObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameObject.Find("GameManager") != null)
+        {
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
         originalPosition = transform.position;
 	}
 
     private void Update()
     {
-        if (!gameManager.isCleaningPhase && !misplaced & IsOutOfPosition() & PopScorePrefab != null)
+        if ((!gameManager || !gameManager.isCleaningPhase) && !misplaced & IsOutOfPosition() & PopScorePrefab != null)
         {
             InstantiateScore(baseScore);
 
             misplaced = true;
         }
 
-        if (gameManager.isCleaningPhase)
+        if (gameManager && gameManager.isCleaningPhase)
         {
             ChangeMaterialToConveyDistanceFromOriginInCleaningMode();
         }
@@ -52,7 +55,10 @@ public class GenericObject : MonoBehaviour {
     {
         float currentDistanceFromOrigin = GetDistanceFromOriginalPosition();
 
-        if (currentDistanceFromOrigin > gameManager.AllowedDistanceFromOrigin)
+        if (!gameManager)
+            return false;
+
+        if ( currentDistanceFromOrigin > gameManager.AllowedDistanceFromOrigin)
         {
             return true;
         }
@@ -64,7 +70,7 @@ public class GenericObject : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!gameManager.isCleaningPhase && GetComponent<Rigidbody>().velocity.magnitude > minimumBangVelocity & PopScorePrefab != null)
+        if ((!gameManager || !gameManager.isCleaningPhase) && GetComponent<Rigidbody>().velocity.magnitude > minimumBangVelocity & PopScorePrefab != null)
         {
             InstantiateScore(GetComponent<Rigidbody>().velocity.magnitude * 500);
 

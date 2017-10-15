@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class GeneralUI : MonoBehaviour {
@@ -16,14 +17,22 @@ public class GeneralUI : MonoBehaviour {
     public float messingTime = 120;
     public float cleaningTime = 120;
 
+    public GameObject timer1;
+    public GameObject timer2;
+
+    private float timeLeftSeconds;
+
 	// Use this for initialization
 	void Start () {
         StartCoroutine(StartingPrompt());
-	}
+        timeLeftSeconds = 0.0f;
+        timer1.GetComponent<Text>().enabled = false;
+        timer2.GetComponent<Text>().enabled = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        UpdateAndDisplayTimeLeft();
 	}
 
 
@@ -93,10 +102,35 @@ public class GeneralUI : MonoBehaviour {
 
     private IEnumerator CleaningTime()
     {
+        timeLeftSeconds = cleaningTime;
+        timer1.GetComponent<Text>().enabled = true;
+        timer2.GetComponent<Text>().enabled = true;
+
         yield return new WaitForSeconds(cleaningTime);
 
         GameObject.Find("GameManager").GetComponent<GameManager>().ComputeFinalScore();
         GameObject.Find("Controller (left)").GetComponent<ControllerPickUp>().enabled = false;
         GameObject.Find("Controller (right)").GetComponent<ControllerPickUp>().enabled = false;
+    }
+
+    private void UpdateAndDisplayTimeLeft()
+    {
+        int timeMinutes = (int)(timeLeftSeconds / 60.0f);
+        string minutesString = timeMinutes + "";
+
+        int timeSeconds = ((int)timeLeftSeconds) % 60;
+        string secondsString = timeSeconds + "";
+        if (timeSeconds >= 0 && timeSeconds <= 9)
+        {
+            secondsString = "0" + secondsString;
+        }
+
+        timer1.GetComponent<Text>().text = minutesString + ":" + secondsString;
+        timer2.GetComponent<Text>().text = minutesString + ":" + secondsString;
+
+        if (timeLeftSeconds > 0.0f)
+        {
+            timeLeftSeconds -= Time.deltaTime;
+        }
     }
 }
